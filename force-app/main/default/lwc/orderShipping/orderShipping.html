@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Sélectionnez le mode de livraison" icon-name="standard:shipment">
+        <fieldset class="slds-form-element" role="radiogroup">
+            <div class="slds-form-element__control">
+
+                <div class="slds-visual-picker slds-visual-picker_small slds-m-around_medium">
+                    <input type="radio" id="visual-picker-97" value={fasterDeliveryTransporteur} name="transporteur" onchange={handleTransporteurChange} />
+                    <label for="visual-picker-97">
+                        <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                            <span>
+                                <lightning-icon icon-name="custom:custom95" size="small" alternative-text="icone temps"></lightning-icon>
+                                <span class="slds-text-heading_medium">Plus rapide</span>
+                            </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                            <span class="slds-text-heading_small">{fasterDeliveryTransporteur}</span>
+                            <span class="slds-text-title">Tarif: {fasterDeliveryTarif} euros</span>
+                            <span class="slds-text-title">Délai: {fasterDeliveryDelaiLivraison} jour(s)</span>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="slds-visual-picker slds-visual-picker_small slds-m-around_medium">
+                    <input type="radio" id="visual-picker-98" value={leastExpensiveTransporteur} name="transporteur" onchange={handleTransporteurChange} />
+                    <label for="visual-picker-98">
+                        <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                            <span>
+                                <lightning-icon icon-name="custom:custom40" size="small" alternative-text="icone coût"></lightning-icon>
+                                <span class="slds-text-heading_medium">Moins cher</span>
+                            </span>
+                        </span>
+                        <span class="slds-visual-picker__body">
+                            <span class="slds-text-heading_small">{leastExpensiveTransporteur}</span>
+                            <span class="slds-text-title">Tarif: {leastExpensiveTarif} euros</span>
+                            <span class="slds-text-title">Délai: {leastExpensiveDelaiLivraison} jour(s)</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Bouton Valider -->
+        <lightning-button class="slds-button slds-m-around_medium" label="Valider livraison" onclick={handleValider} disabled={isButtonDisabled}></lightning-button>
+    </lightning-card>
+</template>
